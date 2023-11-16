@@ -14,7 +14,7 @@ namespace SoulsFormats
             /// <summary>
             /// Unknown; possibly a timeline index.
             /// </summary>
-            public int Unk08 { get; set; }
+            public int TimelineIndex { get; set; }
 
             public int StartFrame { get; set; }
 
