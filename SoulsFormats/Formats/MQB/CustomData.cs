@@ -293,8 +293,8 @@ namespace SoulsFormats
                 public class Point
                 {
                     public object Value { get; set; }
-
-                    public int Unk08 { get; set; }
+                    
+                    public int Frame { get; set; }
 
                     public float Unk10 { get; set; }
 
