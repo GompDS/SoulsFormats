@@ -1,10 +1,8 @@
-﻿using System;
+﻿﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace SoulsFormats
 {
-#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
     public partial class FLVER2
     {
         /// <summary>
@@ -30,7 +28,7 @@ namespace SoulsFormats
                 TerminatorID = int.MaxValue;
             }
 
-            internal GXList(BinaryReaderEx br, FLVER2.FLVERHeader header) : base()
+            internal GXList(BinaryReaderEx br, FLVERHeader header) : base()
             {
                 if (header.Version < 0x20010)
                 {
@@ -54,7 +52,7 @@ namespace SoulsFormats
                 }
             }
 
-            internal void Write(BinaryWriterEx bw, FLVER2.FLVERHeader header)
+            internal void Write(BinaryWriterEx bw, FLVERHeader header)
             {
                 if (header.Version < 0x20010)
                 {
@@ -89,7 +87,7 @@ namespace SoulsFormats
             public int Unk04 { get; set; }
 
             /// <summary>
-            /// Raw parameter data, either float int values
+            /// Raw parameter data, usually just a bunch of floats.
             /// </summary>
             public byte[] Data { get; set; }
 
@@ -113,7 +111,7 @@ namespace SoulsFormats
                 Data = data;
             }
 
-            internal GXItem(BinaryReaderEx br, FLVER2.FLVERHeader header)
+            internal GXItem(BinaryReaderEx br, FLVERHeader header)
             {
                 if (header.Version <= 0x20010)
                 {
@@ -128,7 +126,7 @@ namespace SoulsFormats
                 Data = br.ReadBytes(length - 0xC);
             }
 
-            internal void Write(BinaryWriterEx bw, FLVER2.FLVERHeader header)
+            internal void Write(BinaryWriterEx bw, FLVERHeader header)
             {
                 if (header.Version <= 0x20010)
                 {
